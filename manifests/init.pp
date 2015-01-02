@@ -1,6 +1,7 @@
 # == Class: dhcp
 #
 class dhcp (
+  $authoritative       = true,
   $dnsdomain           = undef,
   $nameservers         = [ '8.8.8.8', '8.8.4.4' ],
   $ntpservers          = undef,
