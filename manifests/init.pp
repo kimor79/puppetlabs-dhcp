@@ -154,14 +154,12 @@ class dhcp (
   # create_resources.  This allows the end user almost total control over the
   # DHCP server without modifying this module at all.
 
-  # JJM This is commented out because the create_resources in PE does not
-  # support the third option.
-  # $fragment_defaults = {
-  #   content => "# Managed by Puppet\n",
-  #   target  => "${dhcp_dir}/dhcpd.conf",
-  #   order   => '80',
-  # }
-  create_resources('concat::fragment', $dhcp_conf_fragments)
+  $fragment_defaults = {
+    content => "# Managed by Puppet\n",
+    target  => "${dhcp_dir}/dhcpd.conf",
+    order   => '80',
+  }
+  create_resources('concat::fragment', $dhcp_conf_fragments, $fragment_defaults)
 
   # dhcpd.pool
   concat { "${dhcp_dir}/dhcpd.pools": }
