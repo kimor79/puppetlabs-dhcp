@@ -4,11 +4,13 @@ define dhcp::pool (
   $network,
   $mask,
   $gateway     = '',
-  $range       = '',
+  $range       = [],
   $failover    = '',
   $options     = '',
   $parameters  = ''
 ) {
+  #input validation
+  validate_array($range)
 
   include dhcp::params
 
