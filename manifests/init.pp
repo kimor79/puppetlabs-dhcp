@@ -33,7 +33,10 @@ class dhcp (
   validate_array($dnsdomain_real)
 
   validate_array($nameservers)
-  validate_array($ntpservers)
+
+  if $ntpservers {
+    validate_array($ntpservers)
+  }
 
   include dhcp::params
   include dhcp::monitor
