@@ -3,11 +3,12 @@
 define dhcp::pool (
   $network,
   $mask,
-  $gateway     = '',
-  $range       = [],
-  $failover    = '',
-  $options     = '',
-  $parameters  = ''
+  $gateway          = '',
+  $range            = [],
+  $failover         = '',
+  $options          = '',
+  $parameters       = '',
+  $pool_parameters  = '',
 ) {
   #input validation
   validate_array($range)
